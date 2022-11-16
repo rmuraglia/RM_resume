@@ -1,4 +1,5 @@
 % RM_resume.tex
+% modified from https://www.latextemplates.com/template/medium-length-professional-cv
 
 %---------------------------------------------------
 %   PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
@@ -6,10 +7,10 @@
 
 \documentclass[11pt]{article}
 
-\usepackage[left=0.75in,top=0.64in,right=0.75in,bottom=0.65in]{geometry} % Document margins
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
 % \usepackage[margin=0.75in]{geometry}
 \usepackage[parfill]{parskip}
-\usepackage{fancyhdr, lastpage, array, ifthen, hyperref, multirow, xcolor}
+\usepackage{fancyhdr, lastpage, array, ifthen, hyperref, multirow, xcolor, fontawesome5,amsmath}
 \setlength{\headheight}{15.2pt}
 \pagestyle{fancy}
 
@@ -29,7 +30,7 @@
 % Defines the rSection environment for the large sections within the CV
 \newenvironment{rSection}[1]{ % 1 input argument - section name
   \sectionskip
-  \MakeUppercase{\bf #1} % Section title
+  \MakeUppercase{\textbf{#1}} % Section title
   \sectionlineskip
   \hrule % Horizontal line
   \begin{list}{}{ % List for each individual item in the section
@@ -42,7 +43,7 @@
 
 %Define rSubsection environment
 \newenvironment{rSubsection}[4]{ % 4 input arguments - company name, year(s) employed, job title and location
- {\bf #1} \hfill {#2} % Bold company name and date on the right
+ {\bfseries #1} \hfill {#2} % Bold company name and date on the right
  \ifthenelse{\equal{#3}{}}{}{ % If the third argument is not specified, don't print the job title and location line
   \\
   {\em #3} \hfill {\em #4} % Italic job title and location
@@ -64,23 +65,61 @@
 
 \begin{document}
 
-\begin{tabular}{ @{\hspace{1ex}} >{\bfseries}c @{\hspace{7ex}} >{\itshape}l @{\hspace{3ex}} l }
+\begingroup
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{ @{\hspace{7ex}} >{\bfseries}c @{\hspace{11ex}} r >{\itshape}l @{\hspace{3ex}} l }
 \multirow{4}{*}{{\Huge Ryan Muraglia}} 
-  & Address & 1209 E Florida Ave, Apt 33A, Urbana, IL 61801 \\
-  & Phone & (310) 940 8613 \\
-  & Email & \href{mailto:rmuraglia@gmail.com}{rmuraglia@gmail.com} \\
-  & Website & \url{https://github.com/rmuraglia}
+  & \faIcon{map-marker-alt} & Address & 7249 York St, Dexter, MI 48130 \\
+  & \faPhone & Phone & (310) 940 8613 \\
+  & \faIcon{envelope} & Email & \href{mailto:rmuraglia@gmail.com}{rmuraglia@gmail.com} \\
+  & \faLinkedin & LinkedIn & \href{https://www.linkedin.com/in/ryan-muraglia-63492b126/}{/in/ryan-muraglia} \\
+  % & \faGithub & GitHub & \url{https://github.com/rmuraglia} \\
+  % & \faIcon{pencil-alt} & Blog & \url{foo}{bar} \\
 \end{tabular} 
+\endgroup
 
 %-------------------------------------------------
-% SKILLS
+%   SUMMARY
 %-------------------------------------------------
 
 \begin{rSection}{Summary}
-Motivated \& detail-oriented recent graduate trained in computer science, statistics \& biology. 
-Passion for data-driven decision making \& effective communication through elegant visualization.
-Excellent ability to work \& learn independently, with strong interpersonal skills to flourish in team-based environments. 
-Experienced with various classification, regression \& clustering techniques in R \& Python.
+Data scientist with 5 years of experience developing, deploying and maintaining machine learning models with terabyte-scale streams of big data.
+Proven track record of delivering business value with both classic data science and analytics, as well as with modern deep learning methods.
+Strong communicator excels in leadership roles, but also flourishes in independent and collaborative technical roles.
+Passionate about establishing best practices and processes for rigorous and reproducible science.
+\end{rSection}
+
+%-------------------------------------------------
+%   WORK EXPERIENCE
+%-------------------------------------------------
+
+\begin{rSection}{Work Experience}
+{\bfseries Verizon Media} (formerly Yahoo!, Oath) \hfill Champaign, IL \\
+{\em \hspace*{2ex} Data Scientist II, Brand Data team lead} \hfill April 2019 - Present
+
+\begin{list}{$\cdot$}{\leftmargin=6ex \rightmargin=4ex} % \cdot used for bullets
+   \itemsep -0.5em \vspace{-0.5em} % Compress items in list together for aesthetics
+   \item Oversaw strategy, development and socialization of our internal \textit{Brand Data} platform, leveraged by partner teams to generate \textbf{\$200M} in quarterly revenue (influenced and indirect)
+   \item Developed a \textbf{PySpark} pipeline implementing a state of the art \textbf{deep learning} model in \textbf{PyTorch} for named entity recognition (NER), processing over \textbf{100 million records/day}
+   % \item Achieved \textbf{2x speed up} in inference job runtime and \textbf{5x reduction} in memory utilization relative to the previously used algorithm, saving \$500 in monthly compute costs for brand extraction jobs
+   \item Created an active learning pipeline to continuously obtain new labeled data, and \textbf{automatically retrain and deploy} the NER model to combat model staleness and concept drift
+   \item Prototyped applications of \textit{Brand Data} for adoption by partner teams in sales and targeting, including customer segmentation and churn analysis (\textbf{clustering}), brand search topic association (\textbf{topic modeling}), and polarized content engagement (\textbf{sentiment analysis})
+   % \item Brand linking (aka brand mapping) relevant but not too exciting
+   % \item Brand dictionary same thing -- relevant but maybe not technically challenging or exciting
+   \item Demonstrated a leading and innovative spirit, with a \textbf{100\% success rate} (3/3 years) in accepted submissions to Verizon Media's annual internal technical conference
+   \item Engaged with the broader data science team to shape policies, processes and best practices for developing high quality code and reproducible models, leveraging Git and Jira integrations
+\end{list}
+
+{\em \hspace*{2ex} Data Scientist I} \hfill June 2017 - March 2019 \\
+{\em \hspace*{2ex} Data Engineer I} \hfill January 2017 - May 2017
+
+\begin{list}{$\cdot$}{\leftmargin=6ex \rightmargin=4ex} % \cdot used for bullets
+   \itemsep -0.5em \vspace{-0.5em} % Compress items in list together for aesthetics
+   \item Developed a method for canonicalization of item names extracted from purchase receipts, resulting in a 30\% reduction in cardinality, facilitating downstream analysis
+   \item Analyzed the adverse effect of excessive ad load on user engagement and lifetime value
+   \item Contributed to improvements and modernization of a demographic prediction model
+\end{list}
+
 \end{rSection}
 
 %------------------------------------------
@@ -89,77 +128,33 @@ Experienced with various classification, regression \& clustering techniques in 
 
 \begin{rSection}{Education}
 
-{\bf Duke University}, Durham, NC \hfill August 2012 - August 2016 \\
-M.S., Computational Biology \& Bioinformatics (CBB) \hfill GPA: 3.7/4.0 \\
-{\em {\small (Former Ph.D candidate (ABD). Student-initiated voluntary withdrawal - preliminary exam completed 02/2015)}}
-\begin{list}{$\cdot$}{\leftmargin=1.5em} % \cdot used for bullets, no indentation
-   \itemsep -0.5em \vspace{-0.5em} % Compress items in list together for aesthetics
-   \item \underline{Thesis}: \href{https://dl.dropboxusercontent.com/u/42186570/RM_thesis.pdf}{``Path optimization in free energy calculations''} {\small w/ Scott Schmidler, Dept. of Statistical Science} \\ 
-   Used reinforcement learning techniques (Q-learning, multi-armed bandit), dynamic programming graph search algorithms and sequential Monte Carlo sampling to achieve 2-5X reduction in computational cost of estimating free energies of binding for trial mutations in rational molecular design. % add hyperlinks for images in here as well?
-   \item \underline{Honors \& Awards}: Chancellor's scholarship (2012, \$5,000), Best poster (CBB departmental retreat 2014, \$100), Selected student research presentation (CBB recruitment 2016)
-   \item \underline{Teaching \& Leadership}: CBB student committee chair, CBB 540 TA, CBB 511 discussion leader
-\end{list}
+{\bfseries Duke University}, Durham, NC \hfill August 2012 - August 2016 \\
+\hspace*{2ex} M.S., Computational Biology \& Bioinformatics (CBB)
+% {\em {\small (Former Ph.D candidate (ABD). Student-initiated voluntary withdrawal - preliminary exam completed 02/2015)}}
 
-\vspace{-0.0ex}
-{\bf University of Michigan}, Ann Arbor, MI \hfill September 2007 - April 2011 \\ 
-B.S., Microbiology; Academic Minor, Physics \hfill GPA: 3.6/4.0
-\begin{list}{$\cdot$}{\leftmargin=1.5em} 
-   \itemsep -0.5em \vspace{-0.5em} 
-   \item \underline{Research}: Analyzed high throughput 454 pyrosequencing data of gut microbiome in R.
-   \item \underline{Honors \& Awards}: University honors (2009 - 2011), James B. Angell Scholar (2011)
-\end{list}
+\vspace{-1ex}
+{\bfseries University of Michigan}, Ann Arbor, MI \hfill September 2007 - April 2011 \\
+\hspace*{2ex} B.S., Microbiology; Academic Minor, Physics
 
-\vspace{-0.0ex}
-{\bf Selected Coursework}\\
-\begin{list}{$\cdot$}{\leftmargin=0em} 
-   \itemsep -0.5em \vspace{-2.0em} 
-   \item STA 863 Advanced statistical computing (Duke): MCMC methods, convergence \& convex optimization % gibbs sampling, hybrid monte carlo, tempering, inference (kalman filter)
-   \item CMPLXSYS 430 Math. modeling of infectious diseases (UM): ODE methods \& inference in MATLAB
-   \item CBB 540 Statistical methods in computational biology (Duke): Regression, EM \& HMMs in R
-   \item COMPSCI 270 Introduction to AI (Duke): Markov decision processes \& machine learning in Python
-   \item Coursera: {\small Machine learning (Stanford), Using databases w/ Python (UM), Getting \& cleaning data (JHU)}
-\end{list}
 \end{rSection}
-
 %-------------------------------------------------
 % SKILLS
 %-------------------------------------------------
 
-\begin{rSection}{Skills}
+\begin{rSection}{Skills and Proficiencies}
 
-\begin{tabular}{ @{} >{\bfseries}l @{\hspace{4ex}} l }
-Scientific Computing & Proficient in R and Python. Comfortable with MATLAB/Octave \\ % remove octave and put in scipy stack?
-Cluster Computing & Unix, shell scripting, experienced in use of SLURM and SGE schedulers \\
-% Statistical techniques?
-Data Handling & MySQL, SQLite, dplyr, tidyr, retrieving JSON and XML from APIs \\ % add pandas?
-Presentation & \LaTeX, beamer, ggplot2, knitr, Jupyter, Microsoft Powerpoint \\
-% Languages & English (native), French (fluent), Spanish (conversational) \\
-Miscellaneous & Git, Microsoft Office (Word, Excel), Windows, Mac and Linux OS
+\begin{tabular}{>{\bfseries}l @{\hspace{4ex}} l }
+Primary Languages & Python, R, SQL (Hive, Presto), Shell (Bash), Spark (PySpark) \\
+Common Packages & Pandas, Scikit, Tensorflow 2, PyTorch, Tidyverse, Hugging Face \\
+\multirow{2}{*}{{Classic Data Science}}
+  & Regression and Classification (Linear models, Tree models, Ensembles) \\
+  & Clustering (e.g. k-means), Anomaly Detection (esp. time series) \\
+\multirow{2}{*}{{Deep Learning}}
+  & Feedforward networks, Convolutional networks (CNN), \\
+  & Recurrent networks (LSTM), Attention networks (Transformers) \\
+Dashboarding & Shiny, Flask, Looker \\
+Additional Tools & Git, Hadoop, Make \\
 \end{tabular}
-
-\end{rSection}
-
-%-------------------------------------------------
-% NON-ACADEMIC PROJECTS
-%-------------------------------------------------
-
-\begin{rSection}{Non-academic projects}
-
-\textbf{Analysis and visualization of Smash 4 data} \hfill \textit{Primary tools: R, ggplot2, MySQL} \\
-\begin{list}{$\cdot$}{\leftmargin=0em} 
-   \itemsep -0.5em \vspace{-2.0em} 
-   \item A statistical perspective on character balance and strength in fighting games. Data represent character attributes and match records from a matchmaking website ($\sim$50K games/week, $\sim$2M total in DB).
-   \item Analyses are varied, and range from \href{https://dl.dropboxusercontent.com/u/42186570/char_co-usage_icons.png}{heat maps} for character co-usage rates, to \href{https://dl.dropboxusercontent.com/u/42186570/4BR_v_runspeed_nozoom.png}{models} using character attributes as predictors of performance, to \href{https://dl.dropboxusercontent.com/u/42186570/4br-1.1.6-sorted-deltas.png}{revisualizations} highlighting trends in community opinion.
-   % \item Information disseminated, 10K impressions, 1.5K media engagements for each viz
-\end{list}
-
-\vspace{-0.2ex}
-\textbf{Development of the NC Smash 4 player database} \hfill \textit{Primary tools: MySQL, Python} \\
-\begin{list}{$\cdot$}{\leftmargin=0em} 
-   \itemsep -0.5em \vspace{-2.0em} 
-   \item Created database to facilitate tournament organization and improve seeding accuracy by tracking player performance ($\sim$40-60 unique entrants at local weeklies, $\sim$200 at regional). % add number in db
-   \item Past tournament results are programmatically inserted into a MySQL DB using the challonge.com API.
-\end{list}
 
 \end{rSection}
 
