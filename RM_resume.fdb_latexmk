@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1668629225 "/Users/rmuraglia/git/RM_resume/RM_resume.tex" "RM_resume.pdf" "RM_resume" 1668629228
-  "/Users/rmuraglia/git/RM_resume/RM_resume.tex" 1668629222 8125 6be403b44b74e2fbfb31b1608171ab1f ""
+["pdflatex"] 1668960114 "/Users/rmuraglia/git/RM_resume/RM_resume.tex" "RM_resume.pdf" "RM_resume" 1668960116
+  "/Users/rmuraglia/git/RM_resume/RM_resume.tex" 1668960113 8069 eec64886aa16cd95af793262c3eb848f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/fontawesome5/fa5brands0.enc" 1622837620 2920 d63721872b8c77041b88e51b8f7c291d ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.enc" 1622837620 3042 0e2b14b9be7d01075a4c4591d5d1781b ""
@@ -99,9 +99,9 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1668210501 4606425 c89281e7e3b450406f10e7850870bdd4 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1668210565 3063416 b381c1e553de0e5e05f2544ce106dcf5 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "RM_resume.aux" 1668629227 649 8ed3ac6fe9e158acb8a710d173edc6e5 "pdflatex"
+  "RM_resume.aux" 1668960116 649 8ed3ac6fe9e158acb8a710d173edc6e5 "pdflatex"
   "RM_resume.out" 0 -1 0 "pdflatex"
-  "RM_resume.tex" 1668629222 8125 6be403b44b74e2fbfb31b1608171ab1f ""
+  "RM_resume.tex" 1668960113 8069 eec64886aa16cd95af793262c3eb848f ""
   (generated)
   "RM_resume.aux"
   "RM_resume.log"
